@@ -1,0 +1,28 @@
+<%- include("header")%>
+<div class="container mx-auto p-4 d-flex align-items-center justify-content center"style="min-height:90vh">
+    <form method="post" class="mx-auto"action="/events/crossword/edit/<%=slug%>">
+    
+    <h1 class="mx-auto text-center">Edit <%=type.charAt(0).toUpperCase()+type.slice(1,type.length).toLowerCase()%></h1>
+    <h3 class="font-italic text-center mx-auto"><%=title.charAt(0).toUpperCase()+title.slice(1,title.length).toLowerCase()%></h3>
+    <div class="row my-5">
+        <div class="col">
+            <h5 class="text-right mx-auto title">Title of the <%=type%></h5>
+        </div>
+        <div class="col">
+            <input type="text"class="form-control" value="<%=title%>" name="title" id="title" required/>
+        </div>
+    </div>
+    <div class="row  my-5">
+        <div class="col">
+            <h5 class="text-right mx-auto title">Question of the <%=type%> (Link)</h5>
+        </div>
+        <div class="col">
+            <input type="text" value="<%=question%>"class="form-control"name="question" id="question" required/>
+        </div>
+    </div>
+    <div class="row">
+        <button class="button mx-auto">Update</button>
+    </div>
+</form>
+</div>
+<%- include("footer")%> 

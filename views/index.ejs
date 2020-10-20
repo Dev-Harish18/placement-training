@@ -1,0 +1,70 @@
+<%- include('header')%>
+
+<body>
+  <div class="container-fluid p-1 w-100">
+    <%- include('nav')%>
+
+    <div class="row mb-5 p-2 p-lg-5 mx-auto">
+      <%success.forEach(message=>{%>
+        <div class="col-8 alert alert-success text-center mx-auto">
+          <%=message%>
+        </div>
+      <%})%>
+      <%errors.forEach(message=>{%>
+        <div class="col-8 alert alert-danger text-center mx-auto">
+          <%=message%>
+        </div>
+      <%})%>
+      <div class="col-12 col-lg-6 mx-auto order-lg-12">
+        <img src="/img/main.png" id="main-img" alt="" />
+      </div>
+      <div class="col-12 col-lg-6 mt-5 mx-auto order-lg-1 p-3 p-lg-5 shadow">
+        <h1 class="font-weight-bold main-h1">Placement Training</h1>
+        <p class="h4 my-5 main-desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quod
+          cupiditate, doloribus itaque voluptate minima soluta tempore inventore
+          labore non incidunt tempora. Excepturi eos beatae quaerat distinctio
+          cum perferendis? Doloremque?
+        </p>
+        <div class="d-flex justity-content-start align-items-center flex-wrap">
+          <a
+          href="#events"
+          class="button btn-lg my-5 ml-lg-3 main-link text-center"
+          >Events</a
+        >
+        <%if(!name){%>
+        <a
+          href="/users/signup"
+          class="button btn-lg my-5 ml-lg-3 main-link text-center"
+          >Sign Up</a
+        >
+        <%}%>
+        <%if(name && role==="admin"){%>
+        <a
+          href="/events/add"
+          class="button btn-lg my-5 ml-lg-3 main-link text-center"
+          >Add Events</a
+        ><%}%>
+        </div>
+        
+      </div>
+    </div>
+    <div id="events" class="container-fluid ">
+      <div class="row">
+        <div class="col-12 ">
+          <h1 class="text-center mx-auto">Events</h1>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center my-5">
+          <div class="card mx-auto"style="width:20rem;">
+            <img class="card-img-top" src="/img/crossword.jpg" alt="Crossword Image">
+            <div class="card-body">
+              <h5 class="card-title">Crosswords</h5>
+              <p class="card-text">Crosswords are always fun to solve. Check some of our Geeky Crosswords</p>
+              <a href="/events/crossword/getall" class="btn button">Go</a>
+            </div>
+        </div>
+    </div></div>
+    <%- include('footer')%>
+  </div>
+</body>

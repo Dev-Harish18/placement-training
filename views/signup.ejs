@@ -1,0 +1,126 @@
+<%- include('header')%>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="row form my-5 mx-auto">
+          <form
+            action="/users/signup"
+            method="post"
+            class="form mx-auto"
+            autocomplete="off"
+          >
+            <div class="col-12 text-center mb-5">
+              <img id="profile-img" src="/img/profile.png" alt="" />
+            </div>
+
+            <div class="col-12 text-center">
+              <span class="display-4 wel-font"> Sign Up </span>
+            </div>
+
+            <%errors.forEach(error=>{%>
+            <div class="col-12 my-2 text-center">
+              <div class="text-center alert alert-danger"><%=error%></div>
+            </div>
+            <%})%>
+
+            <div class="col-12">
+              <div
+                class="text mt-2 form-group justify-content-center mx-auto col-12"
+              >
+                <input
+                  type="text"
+                  id="name"
+                  value="<%= data[0].name%>"
+                  name="name"
+                />
+                <label for="name"
+                  ><span class="content">&nbsp;&nbsp;Name</span></label
+                >
+              </div>
+            </div>
+            <div class="col-12">
+              <div
+                class="text form-group justify-content-center mx-auto col-12"
+              >
+                <input
+                  type="text"
+                  id="roll"
+                  class=" "
+                  value="<%= data[0].roll%>"
+                  name="roll"
+                />
+                <label for="roll"
+                  ><span class="content">&nbsp;&nbsp;Roll No</span></label
+                >
+              </div>
+            </div>
+            <div class="col-12">
+              <div
+                class="text form-group justify-content-center mx-auto col-12"
+              >
+                <input
+                  type="email"
+                  id="email"
+                  class=" "
+                  value="<%= data[0].email%>"
+                  name="email"
+                />
+                <label for="email"
+                  ><span class="content">&nbsp;&nbsp;Email ID</span></label
+                >
+              </div>
+            </div>
+            <div class="col-12">
+              <div
+                class="text form-group justify-content-center mx-auto col-12"
+              >
+                <input
+                  type="password"
+                  value="<%= data[0].password%>"
+                  id="password"
+                  name="password"
+                />
+                <label for="pass"
+                  ><span class="content"
+                    >&nbsp;&nbsp;Create Password &nbsp;(Alteast 8
+                    characters)</span
+                  ></label
+                >
+              </div>
+            </div>
+            <div class="col-12">
+              <div
+                class="text form-group justify-content-center mx-auto col-12"
+              >
+                <input
+                  type="password"
+                  id="rpass"
+                  class=" "
+                  value="<%= data[0].rpassword%>"
+                  name="rpassword"
+                />
+                <label for="rpass"
+                  ><span class="content"
+                    >&nbsp;&nbsp;Repeat your Password</span
+                  ></label
+                >
+              </div>
+            </div>
+
+            <div class="col-12 my-5 mx-auto text-center">
+              <button id="main-link" class="button btn-lg">Sign Up</button>
+            </div>
+
+            <div class="col-12 text-center">
+              Already have an account? <a href="/users/signin"> Sign In</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include('footer')%>
+  </div>
+</body>

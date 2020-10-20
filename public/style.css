@@ -1,0 +1,263 @@
+#main-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.card-body{
+  background-color:#301e4e;
+  color:#cabae2;
+}
+#error-gif{
+  display: inline-block;
+  height:50%;
+  width:50%;
+  object-fit: cover;
+}
+nav.navbar {
+  background-color: #fd9f9d;
+}
+ul li a {
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+ul li {
+  border-radius: 20px;
+  transition: all 0.5s ease;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.hovered {
+  background-color: #ff6e6c;
+}
+
+ul li a:hover {
+  text-decoration: none;
+}
+
+body,
+html {
+  position: relative;
+  min-height:100vh;
+  /* height: 100%; */
+  width: 100%;
+  font-family: "Montserrat";
+  background-color: #ffffff;
+  color: #1b1425;
+}
+html {
+  scroll-behavior: smooth;
+}
+.main-desc+a{
+margin-right:20px;
+}
+h1 {
+  color: #1f1235;
+  font-size: 58px;
+}
+
+.welfont {
+  color: #1f1235;
+}
+
+*::-moz-selection {
+  background-color: #ff6e6c;
+  color: #1b1425;
+}
+
+*::selection {
+  background-color: #ff6e6c;
+  color: #1b1425;
+}
+
+#profile-img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.table-header{
+  background-color: #ff6e6c;
+  color:#1f1235;
+}
+table{
+  color:#1f1235;
+}
+form.form {
+  width: 50%;
+}
+.title{
+  font-weight: bolder;
+  color:#ff6e6c;
+  word-spacing: 3px;
+}
+input.form-control{
+  font-weight: bold;
+}
+a {
+  color: #ff6e6c;
+  font-weight: bold;
+}
+
+.logo {
+  object-fit: cover;
+  width: 50%;
+  height: 50%;
+}
+
+/*header {
+    /*border-bottom: 5px solid black;
+    width: 100%;
+    height: 100px;
+    /*background-color: slategrey;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}*/
+
+a:hover {
+  /*text-decoration: none;*/
+  color: #1f1235;
+}
+
+.footer {
+  background-color: #ddd;
+  color: #1f1235;
+}
+
+.button:hover {
+  text-decoration: none;
+  box-shadow: 0px 0px 50px #fd9f9d;
+}
+
+input {
+  width: 100%;
+  height: 60%;
+  border: none;
+  outline: none;
+  color: #67568c;
+  font-weight: bolder;
+  background: #ffffff;
+  border-bottom: 1px solid #b8c1ec;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+}
+
+label {
+  left: 10%;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+/*.logo{
+        height:25%;
+        width:50%;
+        object-fit: cover;
+    }*/
+.beforeTrans input + label {
+  font-size: 15px;
+  color: #ff6e6c;
+  transform: translateY(-140%);
+  transition: all 0.5s;
+  -webkit-transform: translateY(-140%);
+  -moz-transform: translateY(-140%);
+  -ms-transform: translateY(-140%);
+  -o-transform: translateY(-140%);
+}
+
+.text.form-group.beforeTrans::before {
+  transform: translateX(0%);
+  transition: 1s;
+}
+
+.text.form-group {
+  overflow: hidden;
+}
+
+.text.form-group::before {
+  content: "";
+  transform: translateX(-100%);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  border-bottom: 3px solid #ff6e6c;
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+}
+.each-crossword{
+  border-left:5px solid #ff6e6c;
+}
+.button {
+  font-weight: bolder;
+  padding: 10px 18px;
+  background-color: #ff6e6c;
+  color: #1f1235;
+  border: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  box-shadow: 0px 0px 30px #e92d29;
+  color: #1f1235;
+}
+
+.bar {
+  color: #ff6e6c;
+}
+.crossword{
+  max-width:90vw;
+  margin:auto;
+  height:90vh;
+  display:flex;
+  flex:1;
+  align-items:center;
+  justify-content: center;
+}
+.crossword iframe{
+  width:100%;
+  height:100%;
+  border:2px solid #ff6e6c;
+  padding:5vw;
+}
+@media (max-width: 992px) {
+  form.form {
+    width: 100%;
+  }
+
+  .navbar-brand {
+    width: 80%;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .main-h1 {
+    text-align: center;
+  }
+
+  .main-link {
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+  }
+  #error-gif{
+    display: inline-block;
+    height:100%;
+    width:100%;
+  }
+  table{
+    width:75%;
+  }
+  #main-img {
+    height: 120%;
+  }
+}
