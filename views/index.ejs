@@ -27,16 +27,18 @@
           cum perferendis? Doloremque?
         </p>
         <div class="d-flex justity-content-start align-items-center flex-wrap">
-          <a
-          href="#events"
-          class="button btn-lg my-5 ml-lg-3 main-link text-center"
-          >Events</a
-        >
+          
         <%if(!name){%>
         <a
           href="/users/signup"
           class="button btn-lg my-5 ml-lg-3 main-link text-center"
           >Sign Up</a
+        >
+        <%}else{%>
+          <a
+          href="#events"
+          class="button btn-lg my-5 ml-lg-3 main-link text-center"
+          >Events</a
         >
         <%}%>
         <%if(name && role==="admin"){%>
