@@ -61,7 +61,7 @@ app.use(async function(err,req,res,next){
   res.redirect('/')
 })
 //Making server to Listen
-app.listen(3000, () => {
+app.listen(process.env.PORT||3000, () => {
   console.log("App running in port 3000");
 });
 
