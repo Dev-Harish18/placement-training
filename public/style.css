@@ -88,7 +88,8 @@ table{
   color:#1f1235;
 }
 form.form {
-  width: 50%;
+  width: 40%;
+  padding:1rem;
 }
 .title{
   font-weight: bolder;
@@ -133,7 +134,9 @@ a:hover {
   text-decoration: none;
   box-shadow: 0px 0px 50px #fd9f9d;
 }
-
+tr.danger{
+  background-color: #ff908e;
+}
 input {
   width: 100%;
   height: 60%;
@@ -145,10 +148,13 @@ input {
   border-bottom: 1px solid #b8c1ec;
   padding-top: 3rem;
   padding-bottom: 0rem;
+  padding-left:1rem;
 }
-
+.text.form-group{
+  padding:0;
+}
 label {
-  left: 10%;
+  left: 1%;
   position: absolute;
   bottom: 0;
   z-index: 1;
@@ -231,7 +237,12 @@ label {
   form.form {
     width: 100%;
   }
-
+  label{
+    left:1%;
+  }
+  input{
+    padding-left:0.8rem;
+  }
   .navbar-brand {
     width: 80%;
   }

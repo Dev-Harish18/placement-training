@@ -15,12 +15,21 @@
         </thead>
         <tbody>
           <%attended.forEach((user,i)=>{%>
-          <tr>
+            <%if(user.activeTime.startsWith('0 min')){%>
+          <tr class="danger">
             <th scope="row"><%=i+1%></th>
             <td><%=user.roll%></td>
             <td><%=user.name%></td>
             <td><%=user.activeTime%></td>
           </tr>
+          <%}else{%>
+            <tr >
+              <th scope="row"><%=i+1%></th>
+              <td><%=user.roll%></td>
+              <td><%=user.name%></td>
+              <td><%=user.activeTime%></td>
+            </tr>
+            <%}%>
           <%})%>
         </tbody>
       </table>

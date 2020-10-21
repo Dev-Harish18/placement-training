@@ -29,15 +29,16 @@
         >
         <%if(name){%>
           <li class="nav-item p-3 text-center">
+            <a href="/#events"
+              >Events
+            </a>
+          </li>
+          <li class="nav-item p-3 text-center">
             <a href="/users/signout"
               ><i class="mt-0 fa fa-power-off"></i>&nbsp;Logout
             </a>
           </li>
-          <li class="nav-item p-3 text-center">
-            <a href="#events"
-              >Events
-            </a>
-          </li>
+          
           <%}else{%>
           <li class="nav-item p-3 text-center">
             <a href="/users/signin">Signin</a>
