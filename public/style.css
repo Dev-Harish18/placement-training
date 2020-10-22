@@ -137,6 +137,9 @@ a:hover {
 tr.danger{
   background-color: #ff908e;
 }
+.crossword-desc{
+font-size:18px;
+}
 input {
   width: 100%;
   height: 60%;

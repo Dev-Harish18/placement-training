@@ -20,9 +20,9 @@
             <%}%>
             <span style="word-spacing: 2px;">Created at <%= event.date[0]%> <%= event.date[1]%> <%= event.date[2]%> <%= event.date[3]%></span>
         </div>
-        <div class="col-lg-5 d-flex align-items-center justify-content-center flex-wrap my-auto p-3">
+        <div class="col-lg-5 p-0 p-lg-3 d-flex align-items-center justify-content-center flex-wrap my-auto">
             <%if(event.attended==true){%>
-            <a class="button mr-2 ml-auto"href="/events/<%=event.type%>/get/<%=event.slug%>">Try Again</a>
+            <a class="button mr-2 ml-lg-auto"href="/events/<%=event.type%>/get/<%=event.slug%>">Try Again</a>
             <%}else{%>
                 <a class="button mr-2 ml-auto"href="/events/<%=event.type%>/get/<%=event.slug%>">Attend</a>
             <%}%>
