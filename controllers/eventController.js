@@ -31,11 +31,19 @@ exports.validate=async (req,res,next)=>{
     if(event){
         errors.push("This title has already been taken")
     }
+    else if(!link.startsWith('http')){
+        errors.push("Invalid Link")
+    }
     req.errors=errors
     next()
 }
 exports.editEvent=async (req,res)=>{ 
     const {title,question}=req.body
+    if(!question.startsWith('http')){
+        req.flash('errors','Invalid Link')
+        await req.session.save()
+        return res.redirect(`/events/${req.params.type}/edit/${title.toLowerCase().split(' ').join('-')}`)
+    }
     const event=await Event.findOne({type:req.params.type,title:req.params.title.split('-').join(" ")})
     event.title=title.toLowerCase()
     event.question=question

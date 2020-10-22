@@ -4,6 +4,13 @@
     
     <h1 class="mx-auto text-center">Edit <%=type.charAt(0).toUpperCase()+type.slice(1,type.length).toLowerCase()%></h1>
     <h3 class="font-italic text-center mx-auto"><%=title.charAt(0).toUpperCase()+title.slice(1,title.length).toLowerCase()%></h3>
+    <div class="row w-100 mx-auto text-center">
+        <%errors.forEach(error=>{%>
+            <div class="col-12 my-2 text-center">
+              <div class="text-center alert alert-danger"><%=error%></div>
+            </div>
+            <%})%>
+    </div>
     <div class="row my-5">
         <div class="col">
             <h5 class="text-right mx-auto title">Title of the <%=type%></h5>

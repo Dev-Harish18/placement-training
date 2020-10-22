@@ -107,12 +107,14 @@ function addEvent(req,res){
 
 async function editEvent(req,res){
   const title=req.params.title.split('-').join(" ")
+  const errors=req.flash('errors')
     const event=await Event.findOne({type:req.params.type,title})
     res.render('editEvent',{
         title:event.title,
         question:event.question,
         type:event.type,
-        slug:req.params.title
+        slug:req.params.title,
+        errors
     })
 }
 
