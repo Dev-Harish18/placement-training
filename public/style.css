@@ -271,6 +271,9 @@ label {
   table{
     width:75%;
   }
+  .add-event{
+    padding:11px 9px;
+  }
   #main-img {
     height: 120%;
   }

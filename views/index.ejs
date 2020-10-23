@@ -20,31 +20,30 @@
       </div>
       <div class="col-12 col-lg-6 mt-5 mx-auto order-lg-1 p-3 p-lg-5 shadow">
         <h1 class="font-weight-bold main-h1">Placement Training</h1>
-        <p class="h4 my-5 main-desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quod
-          cupiditate, doloribus itaque voluptate minima soluta tempore inventore
-          labore non incidunt tempora. Excepturi eos beatae quaerat distinctio
-          cum perferendis? Doloremque?
+        <p class="h4 mt-5 main-desc">
+          Unofficial site for PA- 3rd Year Information Technology.
+          One stop for all placement related updates, quizzes,
+          problems and more.
         </p>
-        <div class="d-flex justity-content-start align-items-center flex-wrap">
+        <div class="d-flex mt-4 justity-content-start align-items-center flex-wrap">
           
         <%if(!name){%>
         <a
           href="/users/signup"
-          class="button btn-lg my-5 ml-lg-3 main-link text-center"
+          class="button btn-lg d-inline-block ml-0 mr-3 main-link text-center"
           >Sign Up</a
         >
         <%}else{%>
           <a
           href="#events"
-          class="button btn-lg my-5 ml-lg-3 main-link text-center"
+          class="button btn-lg d-inline-block ml-0 mr-3 main-link text-center"
           >Events</a
         >
         <%}%>
         <%if(name && role==="admin"){%>
         <a
           href="/events/add"
-          class="button btn-lg my-5 ml-lg-3 main-link text-center"
+          class="button btn-lg add-event d-inline-block ml-0 mr-3 main-link text-center"
           >Add Events</a
         ><%}%>
         </div>
