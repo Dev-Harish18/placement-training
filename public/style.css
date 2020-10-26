@@ -21,7 +21,6 @@ ul li a {
   font-size: 22px;
   font-weight: bolder;
 }
-
 ul li {
   border-radius: 20px;
   transition: all 0.5s ease;
@@ -43,7 +42,6 @@ body,
 html {
   position: relative;
   min-height:100vh;
-  /* height: 100%; */
   width: 100%;
   font-family: "Montserrat";
   background-color: #ffffff;
@@ -103,33 +101,18 @@ a {
   color: #ff6e6c;
   font-weight: bold;
 }
-
 .logo {
   object-fit: cover;
   width: 50%;
   height: 50%;
 }
-
-/*header {
-    /*border-bottom: 5px solid black;
-    width: 100%;
-    height: 100px;
-    /*background-color: slategrey;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-}*/
-
 a:hover {
-  /*text-decoration: none;*/
   color: #1f1235;
 }
-
 .footer {
   background-color: #ddd;
   color: #1f1235;
 }
-
 .button:hover {
   text-decoration: none;
   box-shadow: 0px 0px 50px #fd9f9d;
@@ -162,12 +145,6 @@ label {
   bottom: 0;
   z-index: 1;
 }
-
-/*.logo{
-        height:25%;
-        width:50%;
-        object-fit: cover;
-    }*/
 .beforeTrans input + label {
   font-size: 15px;
   color: #ff6e6c;
@@ -178,7 +155,6 @@ label {
   -ms-transform: translateY(-140%);
   -o-transform: translateY(-140%);
 }
-
 .text.form-group.beforeTrans::before {
   transform: translateX(0%);
   transition: 1s;
@@ -212,12 +188,10 @@ label {
   border: none;
   border-radius: 5px;
 }
-
 .button:hover {
   box-shadow: 0px 0px 30px #e92d29;
   color: #1f1235;
 }
-
 .bar {
   color: #ff6e6c;
 }
@@ -236,28 +210,34 @@ label {
   border:2px solid #ff6e6c;
   padding:5vw;
 }
+#clue-container{
+  width:50%;
+}
 @media (max-width: 992px) {
   form.form {
     width: 100%;
+  }
+  nav ul li{
+    width:50%;
+  }
+  #clue-container{
+    width:100%;
   }
   label{
     left:1%;
   }
   input{
-    padding-left:0.8rem;
+    padding-left:a0.8rem;
   }
   .navbar-brand {
     width: 80%;
   }
-
   h1 {
     font-size: 40px;
   }
-
   .main-h1 {
     text-align: center;
   }
-
   .main-link {
     display: block;
     width: 40%;

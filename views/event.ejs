@@ -11,7 +11,15 @@
             <iframe id="ifr" border="0" src="<%=link%>"></iframe>
         </div>
     </div>
-    <div class="row mx-auto text-center mb-4">
+    <div class="row mx-auto"  id="clue-container">
+      <div class="col-12"><h3 class="title text-center mx-auto">Hints <i class="fa fa-lightbulb-o"></i></h3></div>
+      <div style="background-color:rgb(240, 228, 228);"id="clue" class="col-12 p-3 mx-auto text-center">
+        <%hint.forEach(function(clue){%>
+          <span class="badge badge-primary"><%=clue%></span>
+        <%})%>
+      </div>
+    </div>
+    <div class="row mx-auto text-center my-4">
         <button id="crossword-submit" class="button mx-auto">Submit</button>
     </div>
 </div>
@@ -42,13 +50,11 @@
       const activeTime=((leaveTime.getTime()-enteredTime.getTime())/1000).toFixed(0)
       const seconds=activeTime%60
       const minutes=(activeTime/60).toFixed(0)
-      console.log(minutes,seconds)
       axios.post('/events/response',{
         type:'<%=type%>',
         title:'<%=title%>',
         activeTime:`${minutes} min ${seconds} sec`,
       }).then(res=>{
-        console.log('Response',res)
         if(res.data.message==="success"){
           window.location.href="/"
         }

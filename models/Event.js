@@ -5,6 +5,7 @@ const eventSchema=new mongoose.Schema({
     type:String,
     question:String,
     key:String,
+    hint:String,
     date:{
         type:Date,
         default:Date.now

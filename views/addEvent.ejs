@@ -28,15 +28,24 @@
       </div>
       <div class="col-12">
         <div
-          class="row form-group mt-5 d-flex align-items-center justify-content-center mx-auto col-12"
+          class="row pl-0 form-group mt-5 d-flex align-items-center mx-auto col-12"
         >
-          <p class="col-7 mx-auto my-auto">Type of the Event :</p>
-          <select name="type" class="col-5 mr-auto form-control">
+          <p class="col-7 mr-auto my-auto">Type of the Event</p>
+          <select name="type"class="col-5 mr-auto form-control">
               <option value="crossword" selected>Crossword</option>
           </select>
         </div>
       </div>
-
+      <div class="col-12">
+        <div
+          class="text form-group justify-content-center mx-auto col-12"
+        >
+          <label class="form-label font-weight-bold" for="hint">Hints for the Event</label>
+          <textarea name="hint" required id="hint"
+             class="form-control" cols="30" rows="5"><%= data[0].hint%>
+          </textarea>
+        </div>
+      </div>
       <div class="col-12">
         <div
           class="text form-group justify-content-center mx-auto col-12"

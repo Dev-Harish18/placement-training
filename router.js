@@ -99,7 +99,6 @@ function addEvent(req,res){
       link: ""
     },
   ];
-
   res.render('addEvent',{
     errors,data
   })
@@ -128,9 +127,9 @@ async function getEvent(req, res) {
   if(!event){
     return res.redirect('/error')
   }
-  
+  const hint=event.hint.split(",").sort()
   res.render("event",{
-    name,role,title,type:req.params.type,link:event.question
+    name,role,title,type:req.params.type,link:event.question,hint
   });
 }
 

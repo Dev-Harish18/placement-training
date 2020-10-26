@@ -2,19 +2,21 @@ const Event=require('../models/Event')
 const User = require('../models/User')
 
 exports.addEvent=async function(req,res){
-    let {title,link,type} = req.body
+    let {title,link,type,hint} = req.body
     const errors=req.errors
     if(errors.length > 0){
         req.flash('errors',errors)
         await req.session.save()
+        req.flash("data", {title,link,type,hint});
+        await req.session.save();
         return res.redirect('/events/add')
     }
-    req.flash("data", {title,link,type});
-    await req.session.save();
+    
     const event = await Event.create({
         title:title.toLowerCase(),
         type,
-        question:link
+        question:link,
+        hint:hint.toLowerCase()
     })
 
     await event.save()
@@ -24,9 +26,8 @@ exports.addEvent=async function(req,res){
 }
 
 exports.validate=async (req,res,next)=>{
-    const {title,link}=req.body;
+    const {title,link,hint}=req.body;
     let errors=[];
-    //console.log(req.body)
     const event=await Event.findOne({title:title.toLowerCase()})
     if(event){
         errors.push("This title has already been taken")
@@ -34,6 +35,10 @@ exports.validate=async (req,res,next)=>{
     else if(!link.startsWith('http')){
         errors.push("Invalid Link")
     }
+    if(/[^\w,]/.test(hint)){
+        errors.push('Hints can contain only comma,numbers,alphabets and underscores')
+    }
+    
     req.errors=errors
     next()
 }
@@ -105,7 +110,6 @@ exports.viewStats=async function(req,res){
         if(found===false)
             unattended.push({name:user.name,roll:user.roll,activeTime:'Nil'})
     }
-    console.log("Attended",attended,"\n\nUnattended",unattended)
     res.render('dashboard',{
         attended,unattended,name,role
     })

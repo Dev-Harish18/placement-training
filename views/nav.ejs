@@ -25,25 +25,33 @@
         id="navbarSupportedContent"
       >
         <ul
-          class="navbar-nav w-lg-100 mr-lg-0 justify-content-start justify-content-lg-end"
+          class="navbar-nav w-lg-100 mr-lg-0  justify-content-center justify-content-lg-end"
         >
+        
         <%if(name){%>
-          <li class="nav-item p-3 text-center">
+          <%if(role==="admin"){%>
+            <li class="nav-item p-3 ">
+              <a href="/events/add"
+                ><i class="fa fa-plus"></i> Add Events
+              </a>
+            </li>
+            <%}%>
+          <li class="nav-item p-3 ">
             <a href="/#events"
-              >Events
+              ><i class="fa fa-calendar-check-o"></i> Events
             </a>
           </li>
-          <li class="nav-item p-3 text-center">
+          <li class="nav-item p-3 ">
             <a href="/users/signout"
               ><i class="mt-0 fa fa-power-off"></i>&nbsp;Logout
             </a>
           </li>
           
           <%}else{%>
-          <li class="nav-item p-3 text-center">
+          <li class="nav-item p-3 ">
             <a href="/users/signin">Signin</a>
           </li>
-          <li class="nav-item p-3 text-center">
+          <li class="nav-item p-3 ">
             <a href="/users/signup">SignUp</a>
           </li>
           <%}%>
