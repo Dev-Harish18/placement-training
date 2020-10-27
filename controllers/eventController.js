@@ -35,23 +35,31 @@ exports.validate=async (req,res,next)=>{
     else if(!link.startsWith('http')){
         errors.push("Invalid Link")
     }
-    if(/[^\w,]/.test(hint)){
-        errors.push('Hints can contain only comma,numbers,alphabets and underscores')
+    else if(/[^\w,\(\)]/.test(hint)){
+        errors.push('Hints can contain only alphabets,numbers,comma,underscores and square brackets')
     }
     
     req.errors=errors
     next()
 }
 exports.editEvent=async (req,res)=>{ 
-    const {title,question}=req.body
+    const {title,question,hint}=req.body
+    let errors=[]
     if(!question.startsWith('http')){
-        req.flash('errors','Invalid Link')
+        errors.push('Invalid Link')
+    }
+    else if(/[^\w,\(\)]/.test(hint)){
+        errors.push('Hints can contain only alphabets,numbers,comma,underscores and square brackets')
+    }
+    if(errors.length>0){
+        req.flash('errors',errors)
         await req.session.save()
         return res.redirect(`/events/${req.params.type}/edit/${title.toLowerCase().split(' ').join('-')}`)
     }
     const event=await Event.findOne({type:req.params.type,title:req.params.title.split('-').join(" ")})
     event.title=title.toLowerCase()
     event.question=question
+    event.hint=hint.trim()
     await event.save()
     req.flash('success',`${req.params.type} has been updated successfully`)
     await req.session.save()

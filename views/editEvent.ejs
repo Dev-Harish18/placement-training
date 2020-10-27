@@ -13,15 +13,25 @@
     </div>
     <div class="row my-5">
         <div class="col">
-            <h5 class="text-right mx-auto title">Title of the <%=type%></h5>
+            <h5 class=" mx-auto title">Title of the <%=type%></h5>
         </div>
         <div class="col">
             <input type="text"class="form-control" value="<%=title%>" name="title" id="title" required/>
         </div>
     </div>
+
+    <div class="row my-5">
+        <div
+          class="text form-group justify-content-center mx-auto col-11"
+        >
+          <label class="form-label font-weight-bold" for="hint">Hints for the Event</label>
+          <textarea name="hint" required id="hint"
+             class="form-control" cols="30" rows="5"><%= hint%></textarea>
+        </div>
+      </div>
     <div class="row  my-5">
         <div class="col">
-            <h5 class="text-right mx-auto title">Question of the <%=type%> (Link)</h5>
+            <h5 class=" mx-auto title">Question of the <%=type%> (Link)</h5>
         </div>
         <div class="col">
             <input type="text" value="<%=question%>"class="form-control"name="question" id="question" required/>

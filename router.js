@@ -19,7 +19,7 @@ router.get("/events/:type/getall",authController.mustBeLoggedIn,eventController.
 router.get("/events/:type/get/:title", authController.mustBeLoggedIn,getEvent);
 router.route("/events/:type/edit/:title")
       .get(authController.mustBeLoggedIn,authController.restrictToAdmins,editEvent)
-      .post(eventController.editEvent);
+      .post(eventController.validate,eventController.editEvent);
 router.post("/events/response",userController.saveResponse)
 router.route("/events/add")
       .get(authController.mustBeLoggedIn,authController.restrictToAdmins,addEvent)
@@ -112,6 +112,7 @@ async function editEvent(req,res){
         title:event.title,
         question:event.question,
         type:event.type,
+        hint:event.hint,
         slug:req.params.title,
         errors
     })
