@@ -1,0 +1,66 @@
+<%- include('header')%>
+<%- include('nav')%>
+<div class="container-fluid" style="min-height:100vh">
+    <%if(attended.length>0){%>
+    <h2 class="title mx-auto text-center my-5">Attended Students<span class="badge badge-success ml-2"><%=attended.length%></span></h2>
+    <table class="table table-hover text-center">
+       
+        <thead class="w-100 mx-auto">
+          <tr class="table-header">
+            <th scope="col">S.no</th>
+            <th scope="col">Roll No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Active Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%attended.forEach((user,i)=>{%>
+            <%if(user.activeTime.startsWith('0 min')){%>
+          <tr class="danger">
+            <th scope="row"><%=i+1%></th>
+            <td><%=user.roll%></td>
+            <td><%=user.name%></td>
+            <td><%=user.activeTime%></td>
+          </tr>
+          <%}else{%>
+            <tr >
+              <th scope="row"><%=i+1%></th>
+              <td><%=user.roll%></td>
+              <td><%=user.name%></td>
+              <td><%=user.activeTime%></td>
+            </tr>
+            <%}%>
+          <%})%>
+        </tbody>
+      </table>
+      <%}else{%>
+        <h2 class="title mx-auto text-center my-5">Attended Students<span class="badge badge-success ml-2"><%=attended.length%></span></h2>
+      <%}%>
+<%if(unattended.length>0){%>
+    <h2 class="title mx-auto text-center my-5">Unattended Students<span class="badge badge-success ml-2"><%=unattended.length%></span></h2>
+    <table class="table table-hover text-center">
+        <thead>
+          <tr class="table-header">
+            <th scope="col">S.no</th>
+            <th scope="col">Roll No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Active Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%unattended.forEach((user,i)=>{%>
+          <tr>
+            <th scope="row"><%=i+1%></th>
+            <td><%=user.roll%></td>
+            <td><%=user.name%></td>
+            <td><%=user.activeTime%></td>
+          </tr>
+          <%})%>
+        </tbody>
+      </table>
+      <%}else{%>
+        <h2 class="title mx-auto text-center my-5">Unattended Students<span class="badge badge-success ml-2"><%=unattended.length%></span></h2>
+        <%}%>
+</div>
+
+<%- include('footer')%>

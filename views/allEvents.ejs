@@ -1,0 +1,38 @@
+<%- include('header')%>
+<%- include('nav')%>
+
+<div class="container p-3" style="min-height:90vh">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mx-auto my-4"style="color:#ff6e6c;font-weight: bolder;"><%=type.charAt(0).toUpperCase()+type.slice(1,type.length).toLowerCase()%>s</h1>
+        </div>
+    </div>
+   <%data.forEach(event=>{%>
+    <div class="row each-crossword p-4 my-3 my-lg-4 rounded mx-auto shadow">
+        <div class="col-lg-7 p-2">
+            <h2><%=event.title.charAt(0).toUpperCase()+event.title.slice(1,event.title.length).toLowerCase()%>    
+            <%if(event.attended){%>
+                <span class="badge badge-success">Attended</span>
+            </h2> 
+            <%}else{%>
+                <span class="badge badge-danger">Didn't Attend</span>
+            </h2>
+            <%}%>
+            <span style="word-spacing: 2px;">Created at <%= event.date[0]%> <%= event.date[1]%> <%= event.date[2]%> <%= event.date[3]%></span>
+        </div>
+        <div class="col-lg-5 p-0 p-lg-3 d-flex align-items-center justify-content-center flex-wrap my-auto">
+            <%if(event.attended==true){%>
+            <a class="button mr-2 ml-lg-auto"href="/events/<%=event.type%>/get/<%=event.slug%>">Try Again</a>
+            <%}else{%>
+                <a class="button mr-2 ml-auto"href="/events/<%=event.type%>/get/<%=event.slug%>">Attend</a>
+            <%}%>
+            
+            <%if(role==="admin"){%>
+            <a class="button mr-2 my-2 "href="/events/<%=event.type%>/edit/<%=event.slug%>">Edit</a>
+            <a class="button mr-2 my-2 "href="/events/<%=event.type%>/view-stats/<%=event.slug%>">Stats</a>
+            <%}%>
+        </div>
+    </div>
+   <%})%>
+</div>
+<%- include('footer')%>

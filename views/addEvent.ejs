@@ -1,0 +1,73 @@
+<%- include('header')%>
+<div style="min-height:75vh"class="row form my-5 mx-auto">
+    <form
+      action="/events/add"
+      method="post"
+      class="mx-auto form"
+      autocomplete="off"
+    >
+
+      <div class="col-12 text-center mb-5">
+        <span class="display-4 wel-font">Add Events</span>
+      </div>
+
+      <%errors.forEach(error=>{%>
+        <div class="col-12 my-2 text-center">
+          <div class="text-center alert alert-danger"><%=error%></div>
+        </div>
+        <%})%>
+      <div class="col-12">
+        <div
+          class="text form-group justify-content-center mx-auto col-12"
+        >
+          <input type="text" id="title"value="<%= data[0].title%>" class=" " name="title" required />
+          <label for="title"
+            ><span class="content">&nbsp;&nbsp;Title of the Event</span></label
+          >
+        </div>
+      </div>
+      <div class="col-12">
+        <div
+          class="row pl-0 form-group mt-5 d-flex align-items-center mx-auto col-12"
+        >
+          <p class="col-7 mr-auto my-auto">Type of the Event</p>
+          <select name="type"class="col-5 mr-auto form-control">
+              <option value="crossword" selected>Crossword</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12">
+        <div
+          class="text form-group justify-content-center mx-auto col-12"
+        >
+          <label class="form-label font-weight-bold" for="hint">Hints for the Event</label>
+          <textarea name="hint" required id="hint"
+             class="form-control" cols="30" rows="5"><%= data[0].hint%></textarea>
+        </div>
+      </div>
+      <div class="col-12">
+        <div
+          class="text form-group justify-content-center mx-auto col-12"
+        >
+          <input
+            type="text"
+            id="link"
+            value="<%= data[0].link%>"
+            class=" "
+            name="link"
+            required
+          />
+          <label for="link"
+            ><span class="content">&nbsp;&nbsp;Link for the Event</span></label
+          >
+        </div>
+      </div>
+      
+      <div class="col-12 my-5 mx-auto text-center">
+        <button id="main-link" type="submit" class="button btn-lg">
+          Add Event
+        </button>
+      </div>
+    </form>
+  </div>
+<%- include('footer')%>

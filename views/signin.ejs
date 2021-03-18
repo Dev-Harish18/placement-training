@@ -1,0 +1,78 @@
+<%- include('header') %>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="row form my-5 mx-auto">
+          <form
+            action="/users/signin"
+            method="post"
+            class="mx-auto form"
+            autocomplete="off"
+          >
+            <div class="col-12 text-center mb-5">
+              <img id="profile-img" src="/img/profile.png" alt="" />
+            </div>
+
+            <div class="col-12 text-center">
+              <span class="display-4 wel-font">Sign In</span>
+            </div>
+
+            <%errors.forEach(error=>{%>
+              <div class="col-12 my-2 text-center">
+                <div class="text-center alert alert-danger"><%=error%></div>
+              </div>
+              <%})%>
+            <div class="col-12">
+              <div
+                class="text form-group justify-content-center mx-auto col-12"
+              >
+                <input type="text" id="email"value="<%= data[0].email%>"" class=" " name="email" required />
+                <label for="email"
+                  ><span class="content">Email</span></label
+                >
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div
+                class="text form-group justify-content-center mx-auto col-12"
+              >
+                <input
+                  type="password"
+                  id="pass"
+                  value="<%= data[0].password%>"
+                  class=" "
+                  name="password"
+                  required
+                />
+                <label for="pass"
+                  ><span class="content">Password</span></label
+                >
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-right">
+                <a href="/users/forgotPassword" class="float-right mr-2"
+                  >Forgot your Password?</a
+                >
+              </div>
+            </div>
+            <div class="col-12 my-5 mx-auto text-center">
+              <button id="main-link" type="submit" class="button btn-lg">
+                Sign In
+              </button>
+            </div>
+
+            <div class="col-12 text-center">
+              New user? Create an <a href="/users/signup"> Account</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include('footer')%>
+  </div>
+</body>

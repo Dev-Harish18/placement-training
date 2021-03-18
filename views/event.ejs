@@ -1,0 +1,69 @@
+<%- include('header')%>
+<%- include('nav')%>
+
+
+<div class="container-fluid p-3">
+    <div class="row mx-auto d-flex justify-content-center mt-4">
+        <h2 class="title text-center"><%= title.charAt(0).toUpperCase()+title.slice(1,title.length).toLowerCase()%></h2>
+    </div>
+    <div class="row w-100 my-5 mx-auto">
+        <div class="crossword">
+            <iframe id="ifr" border="0" src="<%=link%>"></iframe>
+        </div>
+    </div>
+    <div class="row mx-auto"  id="clue-container">
+      <div class="col-12"><h3 class="title text-center mx-auto">Hints <i class="fa fa-lightbulb-o"></i></h3></div>
+      <div style="background-color:rgb(240, 228, 228);"id="clue" class="col-12 p-3 mx-auto text-center">
+        <%hint.forEach(function(clue){%>
+          <span class="badge badge-primary"><%=clue%></span>
+        <%})%>
+      </div>
+    </div>
+    <div class="row mx-auto text-center my-4">
+        <button id="crossword-submit" class="button mx-auto">Submit</button>
+    </div>
+</div>
+<div class="row shadow-lg mx-auto w-100 justify-content-center footer align-items-center">
+  <footer class="page-footer font-small py-auto p-3 my-auto align-items-center">
+      <div class="col text-center">Developed by <strong style="font-size: 20px">Harish</strong>
+      </div>
+</footer>
+
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  document.body.onload=async function(e){
+    const enteredTime = new Date()
+    document.getElementById("crossword-submit").addEventListener('click',function(e){
+      e.preventDefault()
+      const leaveTime=new Date()
+      const activeTime=((leaveTime.getTime()-enteredTime.getTime())/1000).toFixed(0)
+      const seconds=activeTime%60
+      const minutes=(activeTime/60).toFixed(0)
+      axios.post('/events/response',{
+        type:'<%=type%>',
+        title:'<%=title%>',
+        activeTime:`${minutes} min ${seconds} sec`,
+      }).then(res=>{
+        if(res.data.message==="success"){
+          window.location.href="/"
+        }
+      })
+      
+    })
+  }
+</script>
+<script src="/front.js"></script>
+</body>
+
+</html>

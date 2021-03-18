@@ -1,0 +1,60 @@
+<nav
+      class="navbar navbar-expand-lg w-100 shadow rounded navbar-white bg-light px-0 w-100 px-lg-2"
+    >
+      <a class="navbar-brand mr-auto" href="/"
+        ><img class="logo" src="/img/logo.png"
+      /></a>
+      <button
+        class="navbar-toggler px-0 px-lg-1 align-items-center"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span
+          class="navbar-toggler-icon d-flex align-items-center justify-content-center"
+          style="font-size: 30px"
+          ><i class="fa fa-bars bar"></i
+        ></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarSupportedContent"
+      >
+        <ul
+          class="navbar-nav w-lg-100 mr-lg-0  justify-content-center justify-content-lg-end"
+        >
+        
+        <%if(name){%>
+          <%if(role==="admin"){%>
+            <li class="nav-item p-3 ">
+              <a href="/events/add"
+                ><i class="fa fa-plus"></i> Add Events
+              </a>
+            </li>
+            <%}%>
+          <li class="nav-item p-3 ">
+            <a href="/#events"
+              ><i class="fa fa-calendar-check-o"></i> Events
+            </a>
+          </li>
+          <li class="nav-item p-3 ">
+            <a href="/users/signout"
+              ><i class="mt-0 fa fa-power-off"></i>&nbsp;Logout
+            </a>
+          </li>
+          
+          <%}else{%>
+          <li class="nav-item p-3 ">
+            <a href="/users/signin">Signin</a>
+          </li>
+          <li class="nav-item p-3 ">
+            <a href="/users/signup">SignUp</a>
+          </li>
+          <%}%>
+        </ul>
+      </div>
+    </nav>
